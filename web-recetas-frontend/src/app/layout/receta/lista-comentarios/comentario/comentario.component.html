@@ -1,0 +1,5 @@
+<div>
+    <p>Escrito por {{comentario.autor.username}}</p>
+    <p>{{comentario.texto}}</p>
+    <button (click)="borrarComentario()" *ngIf="userIsAuthor">Borrar</button>
+</div>

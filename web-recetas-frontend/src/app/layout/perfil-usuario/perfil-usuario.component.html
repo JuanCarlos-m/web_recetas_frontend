@@ -1,0 +1,12 @@
+<p>perfil-usuario works!</p>
+
+<p>{{user.username}}</p>
+<p>{{user.name}}</p>
+<p>{{user.lastname}}</p>
+<p>Seguidores {{noFollowers}}</p>
+
+<div>
+    <button (click)="Follow()" *ngIf="!sameUser && !isFollowed">Seguir</button>
+    <button (click)="Unfollow()" *ngIf="!sameUser && isFollowed">Dejar de seguir</button>
+</div>
+<app-recetas-usuario [username]="user.username"></app-recetas-usuario>

@@ -1,0 +1,24 @@
+<form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="username">Usuario: </label>
+        <input type="text" name="username" id="username" formControlName="username">
+        <p *ngIf="error">Este usuario ya existe.</p>
+    </div>
+    <div>
+        <label for="password">Contraseña: </label>
+        <input type="password" name="password" id="password" formControlName="password">
+    </div>
+    <div>
+        <label for="name">Nombre: </label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="lastname">Apellidos: </label>
+        <input type="text" name="lastname" id="lastname" formControlName="lastname">
+    </div>
+    <div>
+        <label for="fechanac">Fecha de Nacimiento: </label>
+        <input type="date" name="fechanac" id="fechanac" formControlName="fechanac">
+    </div>
+    <button [disabled]="!registroForm.valid">Registrarse</button>
+</form>

@@ -1,0 +1,12 @@
+<h3>Comentarios:</h3>
+<div>
+    <app-comentario *ngFor="let comentario of listacomentarios | paginate:{
+        itemsPerPage: pageSize,
+        currentPage: pageNo,
+        totalItems: totalItems
+    }" [comentario]="comentario"></app-comentario>
+</div>
+
+<pagination-controls (pageChange)="loadList($event)"></pagination-controls>
+
+<app-nuevocomentario [receta]="receta"></app-nuevocomentario>

@@ -1,0 +1,23 @@
+<p>new-recipe works!</p>
+
+<form [formGroup]="recetaForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="titulo">Titulo de la receta:</label>
+        <input type="text" name="titulo" id="titulo" formControlName="titulo" formControlName="titulo">
+    </div>
+    <div>
+        <label for="categoria">Categoria: </label>
+        <select name="categoria" id="categoria" formControlName="categoria">
+            <option value="{{categoria}}" *ngFor="let categoria of listaCat">{{categoria}}</option><!--Usar una pipe para que se vea la primera letra en mayuscula-->
+        </select>
+        <br>
+        <label for="contenido">Escriba su receta aquí:</label>
+        <br>
+        <!-- Textarea puede ser muy primitivo para lo que busco, echar un vistazo a https://www.tiny.cloud/ cuando sepa que la web funciona-->
+        <textarea name="contenido" id="contenido" cols="30" rows="50" formControlName="contenido"></textarea>
+
+        <button type="submit">Subir receta</button>
+    </div>
+
+
+</form>

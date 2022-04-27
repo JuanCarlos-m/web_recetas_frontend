@@ -1,0 +1,9 @@
+<h3>Añadir comentario:</h3>
+
+<form [formGroup]="comentarioform" (ngSubmit)="onSubmit()">
+    <div>
+        <textarea name="texto" formControlName="texto" id="" cols="30" rows="10"></textarea>
+
+        <button type="submit">Enviar comentario</button>
+    </div>
+</form>
