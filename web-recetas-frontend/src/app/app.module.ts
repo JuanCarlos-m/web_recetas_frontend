@@ -22,6 +22,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchComponent } from './layout/search/search.component';
 import { RecetaEntryComponent } from './layout/home/lista_recetas/receta-entry/receta-entry.component';
 import { RegistroComponent } from './layout/registro/registro.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { NoimgPipe } from './core/pipes/noimg/noimg.pipe';
+import { ShortenedPipe } from './core/pipes/shortened/shortened.pipe';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +45,9 @@ import { RegistroComponent } from './layout/registro/registro.component';
     EditarRecetaComponent,
     SearchComponent,
     RecetaEntryComponent,
-    RegistroComponent
+    RegistroComponent,
+    NoimgPipe,
+    ShortenedPipe
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ import { RegistroComponent } from './layout/registro/registro.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    EditorModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

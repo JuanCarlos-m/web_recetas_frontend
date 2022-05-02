@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Receta } from '../../../core/entities/receta';
 import { UserService } from '../../../core/services/user/user.service';
 import { Router } from '@angular/router';
@@ -24,6 +24,10 @@ export class RecetasUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.loadList(this.pageNo);
     
+  }
+
+  ngOnChanges(): void{
+    this.loadList(this.pageNo);
   }
 
   loadList(page:number){

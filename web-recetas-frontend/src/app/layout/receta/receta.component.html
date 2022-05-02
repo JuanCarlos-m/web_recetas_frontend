@@ -2,7 +2,7 @@
 
 <h1>{{receta.titulo}}</h1>
 
-<p>{{receta.contenido}}</p>
+<p [innerHtml]="receta.contenido"></p>
 
 <button (click)="goEdit()" *ngIf="userIsAuthor">Editar</button>
 <button (click)="Borrar()" *ngIf="userIsAuthor">Borrar Receta</button>

@@ -10,11 +10,19 @@
         <select name="categoria" id="categoria" formControlName="categoria">
             <option value="{{categoria}}" *ngFor="let categoria of listaCat">{{categoria}}</option><!--Usar una pipe para que se vea la primera letra en mayuscula-->
         </select>
+
         <br>
         <label for="contenido">Escriba su receta aquí:</label>
         <br>
-        <!-- Textarea puede ser muy primitivo para lo que busco, echar un vistazo a https://www.tiny.cloud/ cuando sepa que la web funciona-->
-        <textarea name="contenido" id="contenido" cols="30" rows="50" formControlName="contenido"></textarea>
+        
+        <editor formControlName="contenido" apiKey="8m7vlf169o8vd6ffcykgu477vjzplye6t02plfzw2s693tz2" [init]="{ 
+            plugins: 'lists link image table code help wordcount lists autoresize', 
+            image_file_types:'jpg jpeg png',
+            toolbar:'undo redo | styles | bold italic | outdent indent | numlist bullist',
+            menubar:'edit insert table help'
+            }">
+            
+        </editor>
 
         <button type="submit">Subir receta</button>
     </div>

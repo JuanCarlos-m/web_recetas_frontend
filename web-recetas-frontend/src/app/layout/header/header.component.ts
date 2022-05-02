@@ -30,8 +30,11 @@ export class HeaderComponent implements OnInit {
 
   goUser(){
     event.preventDefault();
-    if(this.isLoged) this.router.navigate(["/user/"+this.authservice.userValue.username]);
+    if(this.isLoged){
+      this.router.navigate(["/user/"+this.authservice.userValue.username]);
+    }
     else this.login();
+
   }
 
   goHome(){

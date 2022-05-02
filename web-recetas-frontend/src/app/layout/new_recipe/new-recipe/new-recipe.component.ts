@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Categoria, Receta } from '../../../core/entities/receta';
 import { RecetasService } from '../../../core/services/recetas/recetas.service';
 
@@ -13,6 +14,7 @@ export class NewRecipeComponent implements OnInit {
 
   recetaForm:FormGroup;
   listaCat:(string | Categoria)[];
+  image:File;
 
   constructor(private formBuilder:FormBuilder, private router:Router, private recetaSerivce:RecetasService) { }
 
@@ -24,7 +26,6 @@ export class NewRecipeComponent implements OnInit {
     })
     this.listaCat=Object.values(Categoria);
     this.listaCat.splice(this.listaCat.length/2);
-
   }
 
   onSubmit(){
