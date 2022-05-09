@@ -10,6 +10,9 @@
         <select name="categoria" id="categoria" formControlName="categoria">
             <option value="{{categoria}}" *ngFor="let categoria of listaCat">{{categoria}}</option><!--Usar una pipe para que se vea la primera letra en mayuscula-->
         </select>
+        <br>
+        <label for="imagen">Imagen: </label>
+        <input type="file" name="imagen" id="imagen" formControlName="img" (change)="upload($event)">
 
         <br>
         <label for="contenido">Escriba su receta aquí:</label>

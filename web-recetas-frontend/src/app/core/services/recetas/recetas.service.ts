@@ -57,18 +57,35 @@ export class RecetasService {
     return this.http.get<PagedResponse>(url,{params});
   }
 
-  addReceta(receta:Receta){
+  searchByCategoria(busqueda:string, pageNo:number=1){
+    const url=environment.api_url+"recetas/categoria/"+busqueda;
+
+    let params:HttpParams=new HttpParams().set('no', pageNo);
+
+    return this.http.get<PagedResponse>(url,{params});
+  }
+  
+
+  addReceta(receta:Receta, img?:File){
     const url=environment.api_url+"users/"+this.authservice.userValue.username;
-
-    //let headerToken:HttpHeaders= new HttpHeaders().set('Authorization',this.authservice.HeaderToken);;
-
 
     this.http.get<User>(url).subscribe((user:User)=>{
       receta.user=user;
       const url2=environment.api_url+"recetas";
       
       this.http.post(url2,receta, {headers: this.authservice.HeaderToken}).subscribe((receta:Receta) =>{
-        this.router.navigate(['receta', receta.id]);
+        const url3=environment.api_url+"upload";
+        
+        let formdata:FormData=new FormData();
+        formdata.append("file", img);
+
+        let params:HttpParams=new HttpParams()
+        params=params.set('id',receta.id);
+        params=params.set('entity', 'Receta');
+
+        this.http.post(url3,formdata, {params ,headers:this.authservice.HeaderToken}).subscribe(()=>{
+          this.router.navigate(['receta', receta.id]);
+        });
       })
     })
   }

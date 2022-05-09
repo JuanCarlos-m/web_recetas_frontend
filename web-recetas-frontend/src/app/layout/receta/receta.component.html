@@ -1,10 +1,18 @@
 <p>receta works!</p>
 
 <h1>{{receta.titulo}}</h1>
+<img [src]="img" alt="">
+<p><a href="#" (click)="searchCat()">{{receta.categoria}}</a></p>
 
 <p [innerHtml]="receta.contenido"></p>
 
 <button (click)="goEdit()" *ngIf="userIsAuthor">Editar</button>
 <button (click)="Borrar()" *ngIf="userIsAuthor">Borrar Receta</button>
+
+<div>
+    <button (click)="addValoracion(1)" *ngIf="!userIsAuthor" [ngClass]="userVal.valoracion===1? 'liked': 'unpressed'">Me gusta</button>
+    <button (click)="addValoracion(-1)" *ngIf="!userIsAuthor" [ngClass]="userVal.valoracion===-1? 'unliked': 'unpressed'">No me gusta</button>
+    <p>{{likes}} Me gusta</p>
+</div>
 
 <app-lista-comentarios [receta]="id"></app-lista-comentarios>

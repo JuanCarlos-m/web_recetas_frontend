@@ -21,6 +21,7 @@ const routes: Routes = [
   {path:'user/:username', component: PerfilUsuarioComponent},
   {path:'receta/:id/edit', component:EditarRecetaComponent},
   {path:'search/:search', component:SearchComponent},
+  {path:'search/category/:search', component:SearchComponent},
   {path: 'signin', component:RegistroComponent}
 ];
 

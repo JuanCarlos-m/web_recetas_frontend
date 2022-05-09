@@ -22,7 +22,8 @@ export class NewRecipeComponent implements OnInit {
     this.recetaForm=this.formBuilder.group({
       titulo:['', Validators.required],
       contenido:[''],
-      categoria:['']
+      categoria:[''],
+      img:[null]
     })
     this.listaCat=Object.values(Categoria);
     this.listaCat.splice(this.listaCat.length/2);
@@ -35,10 +36,19 @@ export class NewRecipeComponent implements OnInit {
       let receta:Receta={
         titulo: this.recetaForm.value.titulo,
         contenido: this.recetaForm.value.contenido,
-        categoria: this.recetaForm.value.categoria
+        categoria: this.recetaForm.value.categoria,
+        img: this.image.name
       }
-      this.recetaSerivce.addReceta(receta);
+      this.recetaSerivce.addReceta(receta,this.image);
     }
   }
 
+  upload(event:Event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.image=file;
+    /*this.recetaForm.patchValue({
+      img:file
+    });
+    this.recetaForm.get('img').updateValueAndValidity();*/
+  }
 }

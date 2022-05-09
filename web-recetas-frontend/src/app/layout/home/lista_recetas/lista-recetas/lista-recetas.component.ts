@@ -47,7 +47,6 @@ export class ListaRecetasComponent implements OnInit {
         })
         break;
         case "timeline":
-        case undefined:
         this.recetaService.getTimeline(event).subscribe((salida:PagedResponse)=>{
           if (salida.recetas.length===0) this.emptylist=true;
           this.recetaList=salida.recetas;
