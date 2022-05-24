@@ -14,7 +14,10 @@ export class NewRecipeComponent implements OnInit {
 
   recetaForm:FormGroup;
   listaCat:(string | Categoria)[];
-  image:File;
+  image:File=undefined;
+
+  reader:FileReader;
+  thumb:any="assets/placeholder.jpg";
 
   constructor(private formBuilder:FormBuilder, private router:Router, private recetaSerivce:RecetasService) { }
 
@@ -27,17 +30,30 @@ export class NewRecipeComponent implements OnInit {
     })
     this.listaCat=Object.values(Categoria);
     this.listaCat.splice(this.listaCat.length/2);
+    this.reader= new FileReader();
+    this.reader.addEventListener("load", ()=>{
+      this.thumb=this.reader.result;
+    })
   }
 
   onSubmit(){
     if(this.recetaForm.invalid){
       return;
     }else{
-      let receta:Receta={
-        titulo: this.recetaForm.value.titulo,
-        contenido: this.recetaForm.value.contenido,
-        categoria: this.recetaForm.value.categoria,
-        img: this.image.name
+      let receta:Receta;
+      try {
+        receta={
+          titulo: this.recetaForm.value.titulo,
+          contenido: this.recetaForm.value.contenido,
+          categoria: this.recetaForm.value.categoria,
+          img: this.image.name
+        }
+      } catch (error) {
+        receta={
+          titulo: this.recetaForm.value.titulo,
+          contenido: this.recetaForm.value.contenido,
+          categoria: this.recetaForm.value.categoria
+        }
       }
       this.recetaSerivce.addReceta(receta,this.image);
     }
@@ -46,9 +62,6 @@ export class NewRecipeComponent implements OnInit {
   upload(event:Event){
     const file = (event.target as HTMLInputElement).files[0];
     this.image=file;
-    /*this.recetaForm.patchValue({
-      img:file
-    });
-    this.recetaForm.get('img').updateValueAndValidity();*/
+    this.reader.readAsDataURL(this.image);
   }
 }

@@ -1,0 +1,41 @@
+@import '~src/styles/variables';
+@import "~src/styles/mixin";
+
+form{
+    width: 45%;
+}
+
+fieldset{
+    //width: 30%;
+    border-style: none;
+}
+
+form fieldset div{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    input{
+        width: 40%;
+    }
+}
+
+.error{
+    margin: 10px;
+    background-color: $botonborrar;
+    color: white;
+    border-radius: 5px;
+    
+    padding: 10px;
+    text-align: center;
+}
+
+.flexdiv{
+    display: flex;
+    //width: 30%;
+    justify-content: flex-end;
+    button{
+        padding: 5px 8px;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+}

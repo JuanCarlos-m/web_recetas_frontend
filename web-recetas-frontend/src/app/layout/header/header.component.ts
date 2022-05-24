@@ -5,6 +5,7 @@ import { SharedService } from '../../core/services/shared/shared.service';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RecetasService } from '../../core/services/recetas/recetas.service';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,8 @@ export class HeaderComponent implements OnInit {
   isLoged:boolean;
   subscription:Subscription;
   searchForm:FormGroup;
+
+  faicon=faMagnifyingGlass;
 
   constructor(private router:Router, private recetaService:RecetasService, private authservice:AuthService, private ss:SharedService, private formBuilder:FormBuilder) { }
 

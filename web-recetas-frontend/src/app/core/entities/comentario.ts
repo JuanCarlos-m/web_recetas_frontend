@@ -6,6 +6,6 @@ export interface Comentario{
     titulo?:string;
     texto?:string;
     autor?:User;
-    createdAt?:Date;
+    createdAt?:string;
     receta?:Receta;
 }

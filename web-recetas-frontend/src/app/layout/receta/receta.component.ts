@@ -10,6 +10,8 @@ import { TotalValoracion } from 'src/app/core/entities/valoracion';
 import { Valoracion } from '../../core/entities/valoracion';
 import { UserService } from '../../core/services/user/user.service';
 import { User } from 'src/app/core/entities/user';
+import { faThumbsDown, faThumbsUp, faHeart, faFilePen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-receta',
@@ -24,7 +26,13 @@ export class RecetaComponent implements OnInit {
   likes:number=0;
   userVal:Valoracion;
 
-  img:any;
+  likeicon=faThumbsUp;
+  dislikeicon=faThumbsDown;
+  hearticon=faHeart
+  editicon=faFilePen;
+  deleteicon=faTrashCan;
+
+  img:any=undefined;
   
 
   constructor(private activatedRoute:ActivatedRoute, private recetaService:RecetasService, private fileservice:FileService, private valoracionService:ValoracionService, private userService:UserService,private router:Router, private auth:AuthService) { }
@@ -103,5 +111,10 @@ export class RecetaComponent implements OnInit {
           this.updateLikes();
         });
     }
+  }
+
+  seeUser(username:string){
+    event.preventDefault();
+    this.router.navigate(["/user/"+username]);
   }
 }

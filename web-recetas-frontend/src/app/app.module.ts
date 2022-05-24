@@ -25,6 +25,11 @@ import { RegistroComponent } from './layout/registro/registro.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { NoimgPipe } from './core/pipes/noimg/noimg.pipe';
 import { ShortenedPipe } from './core/pipes/shortened/shortened.pipe';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DatePipe } from './core/pipes/date/date.pipe';
+import { UppercasePipe } from './core/pipes/uppercase/uppercase.pipe';
+import { AgePipe } from './core/pipes/age/age.pipe';
+import { NoformatPipe } from './core/pipes/noformat/noformat.pipe';
 
 
 @NgModule({
@@ -47,7 +52,11 @@ import { ShortenedPipe } from './core/pipes/shortened/shortened.pipe';
     RecetaEntryComponent,
     RegistroComponent,
     NoimgPipe,
-    ShortenedPipe
+    ShortenedPipe,
+    DatePipe,
+    UppercasePipe,
+    AgePipe,
+    NoformatPipe
   ],
   imports: [
     BrowserModule,
@@ -56,7 +65,8 @@ import { ShortenedPipe } from './core/pipes/shortened/shortened.pipe';
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
-    EditorModule
+    EditorModule,
+    FontAwesomeModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

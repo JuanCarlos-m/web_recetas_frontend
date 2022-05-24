@@ -1,3 +1,5 @@
+<h2>Ha contruibuido un total de {{totalItems}} recetas</h2>
+
 <ul>
     <app-receta-entry *ngFor="let receta of recetas | paginate:{
         itemsPerPage: pageSize,
@@ -6,4 +8,6 @@
     }" [receta]="receta"></app-receta-entry>
 </ul>
 
-<pagination-controls (pageChange)="loadList($event)"></pagination-controls>
+<div class="paginationdiv">
+    <pagination-controls class="paginacion" (pageChange)="loadList($event)"  previousLabel="" nextLabel="" [autoHide]=true [responsive]=true></pagination-controls>
+</div>

@@ -17,6 +17,7 @@ export class RegistroComponent implements OnInit {
 
   registroForm: FormGroup;
   error:Boolean=false;
+  passwordNotEqual:Boolean=false;
 
   constructor(private formBuilder:FormBuilder,private userService:UserService, private authService: AuthService, private router:Router, private ss:SharedService) { }
 
@@ -26,6 +27,7 @@ export class RegistroComponent implements OnInit {
       this.registroForm=this.formBuilder.group({
         username:['', Validators.required],
         password:['', Validators.required],
+        password2:['',Validators.required],
         name:['', Validators.required],
         lastname:['', Validators.required],
         fechanac:['']
@@ -34,7 +36,7 @@ export class RegistroComponent implements OnInit {
   }
 
   onSubmit(){
-    if (this.registroForm.invalid){
+    if (this.registroForm.invalid || this.passwordNotEqual){
       return;
     }else{
       let newuser:User={
@@ -42,9 +44,9 @@ export class RegistroComponent implements OnInit {
         password:this.registroForm.value.password,
         name:this.registroForm.value.name,
         lastname:this.registroForm.value.lastname,
-        fecha_nac:this.registroForm.value.fechanac
+        fechanac:this.registroForm.value.fechanac
       };
-      
+        
       this.userService.registerUser(newuser).subscribe(response => {
         this.authService.login(newuser.username, newuser.password).subscribe(response => {
           this.ss.setloged();
@@ -54,5 +56,11 @@ export class RegistroComponent implements OnInit {
         this.error=true;
       });
     } 
+  }
+
+  checkpasswd(){
+    if (this.registroForm.value.password!==this.registroForm.value.password2){
+      this.passwordNotEqual=true;
+    }else this.passwordNotEqual=false;
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ComentarioService } from 'src/app/core/services/comentario/comentario.service';
 import { Comentario } from '../../../../core/entities/comentario';
 import { AuthService } from '../../../../core/services/auth/auth.service';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-comentario',
@@ -12,6 +13,8 @@ export class ComentarioComponent implements OnInit {
 
   @Input() comentario:Comentario;
   userIsAuthor:boolean=false;
+
+  faicon=faTrashCan;
 
   constructor(private comentarioService:ComentarioService, private auth:AuthService) { }
 

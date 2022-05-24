@@ -7,7 +7,8 @@ export interface User{
     name?:string;
     lastname?:string;
 
-    fecha_nac?:Date;
+    fechanac?:string;
+    createdAt?:string;
     
     roles?:Role[];
 }

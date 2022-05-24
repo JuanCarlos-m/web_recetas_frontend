@@ -74,6 +74,7 @@ export class RecetasService {
       const url2=environment.api_url+"recetas";
       
       this.http.post(url2,receta, {headers: this.authservice.HeaderToken}).subscribe((receta:Receta) =>{
+        if(img){
         const url3=environment.api_url+"upload";
         
         let formdata:FormData=new FormData();
@@ -83,18 +84,32 @@ export class RecetasService {
         params=params.set('id',receta.id);
         params=params.set('entity', 'Receta');
 
-        this.http.post(url3,formdata, {params ,headers:this.authservice.HeaderToken}).subscribe(()=>{
-          this.router.navigate(['receta', receta.id]);
-        });
+          this.http.post(url3,formdata, {params ,headers:this.authservice.HeaderToken}).subscribe(()=>{
+            this.router.navigate(['receta', receta.id]);
+          });
+        }else this.router.navigate(['receta', receta.id]);
       })
     })
   }
 
-  editReceta(receta:Receta){
+  editReceta(receta:Receta, img?:File){
     const url=environment.api_url+"recetas";
 
     this.http.put(url,receta,{headers: this.authservice.HeaderToken}).subscribe((receta:Receta) =>{
-      this.router.navigate(['receta', receta.id]);
+      if(img){
+        const url3=environment.api_url+"upload";
+        
+        let formdata:FormData=new FormData();
+        formdata.append("file", img);
+
+        let params:HttpParams=new HttpParams()
+        params=params.set('id',receta.id);
+        params=params.set('entity', 'Receta');
+
+          this.http.post(url3,formdata, {params ,headers:this.authservice.HeaderToken}).subscribe(()=>{
+            this.router.navigate(['receta', receta.id]);
+          });
+        }else this.router.navigate(['receta', receta.id]);
     })
   }
 

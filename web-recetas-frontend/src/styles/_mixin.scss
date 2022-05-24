@@ -1,0 +1,21 @@
+@import 'variables';
+
+@mixin menu {
+    background-color: $colorfondos;
+    color: white;
+}
+
+@mixin button{
+    //display: block;
+    border: none;
+    border-radius: 10px;
+    background: $colorboton;
+    color: $colortexto;
+    font-size: 1.2em;
+    //padding: 10px;
+}
+
+@mixin botonespanel {
+    padding: 5px 15px;
+    
+}

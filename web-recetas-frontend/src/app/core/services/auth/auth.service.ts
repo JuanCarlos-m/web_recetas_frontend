@@ -27,7 +27,6 @@ export class AuthService {
   }
 
   public get HeaderToken():HttpHeaders{
-    console.log(this.userSubject.value.token)
     return new HttpHeaders({
       'Authorization':this.userSubject.value.token
     })

@@ -1,0 +1,75 @@
+@import "~src/styles/variables";
+@import "~src/styles/mixin";
+
+
+
+form{
+    position: fixed;
+    right: 0;
+    margin-right: 70px / 1920px * 100%;
+    top: 178px;
+    border-radius: 10px;
+    height: 152px;
+    width: 260px;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: space-evenly;
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 3%;
+        div{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            margin: 10px 3%;
+        }
+    }
+    @include menu;
+    p{
+        //margin: 0 5%;
+        margin-left: 5%;
+    }
+    /*div{
+        display: flex;
+        justify-content: space-between;
+    }*/
+}
+
+.paginationdiv{
+    width: $anchuratarjeta;
+}
+
+@media screen and (max-width:1472px) {
+    form{
+        position: static;
+        //margin: 40px 0;
+        //margin-left: $margenpc;
+        flex-direction: row;
+        padding-top: 1px;
+        width: $anchuratarjeta;
+        height: 100px;
+        p{
+            margin-left: 8%;
+            margin-bottom: 10px;
+        }
+        div{
+            flex-direction: column;
+            div{
+                justify-content: space-between;
+                margin: 0 5%;
+            }
+        }
+    }
+}
+
+h1{
+    margin: 40px 0;
+    //margin-left: $margenpc;
+}
+
+ul{
+    padding: 0;
+    width: 70%;
+}

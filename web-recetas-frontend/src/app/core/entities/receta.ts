@@ -4,7 +4,7 @@ import { Comentario } from './comentario';
 export interface Receta{
 
     id?:number;
-    createdAt?:Date;
+    createdAt?:string;
     titulo?:string;
     contenido?:string;
     img?:string;

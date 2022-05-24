@@ -1,15 +1,15 @@
 <header>
-
+<!-- Aqui deberia haber algo, un logotipo o asi pero no se que poner-->
 
 </header>
-<nav>
+<nav class="navheader">
     <ul>
         <li><a href="#" (click)="goUser()">Mi perfil</a></li>
         <li><a href="#" (click)="goHome()">Inicio</a></li>
         <li><a href="#" (click)="newRecipe()">Nueva receta</a></li>
-        <li><form [formGroup]="searchForm" (keydown.enter)="Search()" (ngSubmit)="Search()">
+        <li class="searchbar"><form [formGroup]="searchForm" (keydown.enter)="Search()" (ngSubmit)="Search()">
             <input type="text" name="search" id="search" formControlName="search" placeholder="Buscar recetas">
-            <button type="submit">buscar</button><!-- Probablemente use Font Awesome, aqui ira el icono de busqueda.-->
+            <button type="submit"><fa-icon [icon]="faicon"></fa-icon></button>
         </form></li>
         <li *ngIf="!isLoged"><a href="#" (click)="login()">Iniciar Sesión</a></li>
         <li *ngIf="isLoged"><a href="#" (click)="logout()">Cerrar Sesión</a></li>

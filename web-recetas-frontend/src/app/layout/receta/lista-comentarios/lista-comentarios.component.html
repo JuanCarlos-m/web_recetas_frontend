@@ -1,4 +1,8 @@
-<h3>Comentarios:</h3>
+<app-nuevocomentario [receta]="receta"></app-nuevocomentario>
+
+<hr>
+
+<h2>Comentarios:</h2>
 <div>
     <app-comentario *ngFor="let comentario of listacomentarios | paginate:{
         itemsPerPage: pageSize,
@@ -7,6 +11,6 @@
     }" [comentario]="comentario"></app-comentario>
 </div>
 
-<pagination-controls (pageChange)="loadList($event)"></pagination-controls>
-
-<app-nuevocomentario [receta]="receta"></app-nuevocomentario>
+<div class="paginationdiv">
+<pagination-controls class="paginacion" (pageChange)="loadList($event)"  previousLabel="" nextLabel="" [autoHide]=true [responsive]=true></pagination-controls>
+</div>
