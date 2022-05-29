@@ -1,0 +1,28 @@
+<article>
+    <section>
+        <h1 class="title">{{receta.titulo}}</h1>
+        <p class="category"><a href="#" (click)="searchCat()">{{receta.categoria}}</a></p>
+        <p class="autor">Escrita por: <a href="#" (click)="seeUser(receta.user.username)">{{receta.user.username}}</a></p>
+    </section>
+    <section>
+        <img class="mainimg" [src]="img" [alt]="receta.titulo" *ngIf="img!==undefined">
+
+        <p class="text" [innerHtml]="receta.contenido"></p>
+        <p class="fecha">{{receta.createdAt | date }}</p>
+    </section>
+    <section class="panel">
+    <div class="likebuttons flexpanel">
+            <button (click)="addValoracion(1)" *ngIf="!userIsAuthor" [ngClass]="userVal.valoracion===1? 'liked': 'unpressed'"><fa-icon [icon]="likeicon"></fa-icon></button>
+            <button (click)="addValoracion(-1)" *ngIf="!userIsAuthor" [ngClass]="userVal.valoracion===-1? 'unliked': 'unpressed'"><fa-icon [icon]="dislikeicon"></fa-icon></button>
+            <p>{{likes}} <fa-icon class="heart" [icon]="hearticon"></fa-icon> </p>
+        </div>
+        <div class="userbuttons flexpanel">
+            <button class="edit" (click)="goEdit()" *ngIf="userIsAuthor"><fa-icon [icon]="editicon"></fa-icon></button>
+            <button class="delete" (click)="Borrar()" *ngIf="userIsAuthor"><fa-icon [icon]="deleteicon"></fa-icon></button>
+        </div>
+    </section>
+</article>
+
+<hr>
+
+<app-lista-comentarios [receta]="id"></app-lista-comentarios>

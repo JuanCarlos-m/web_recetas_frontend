@@ -1,0 +1,25 @@
+<header>
+    <a href="#" class="btmenu" (click)="openMenu()"><fa-icon [icon]="iconMenu"></fa-icon></a>
+    <img class="logo" src="assets/logo.svg" alt="">
+    <a href="#" class="btsearch" (click)="openSearchBar()"><fa-icon [icon]="iconSearchTab"></fa-icon></a>
+</header>
+<div class="mobilesearchbar" [ngClass]="{ msearchhidden : searchHidden==true}">
+    <form [formGroup]="searchForm" (keydown.enter)="Search()" (ngSubmit)="Search()">
+        <input type="text" name="searchm" id="searchm" formControlName="search" placeholder="Buscar recetas">
+        <button type="submit"><fa-icon [icon]="iconSearch"></fa-icon></button>
+    </form>
+</div>
+<nav class="navheader" [ngClass]="{ mobilehidden : hidden==true}">
+    <ul class="menu">
+        <li class="logo"><img class="logo" src="assets/logo.svg" alt=""></li>
+        <li><a href="#" (click)="goUser()">Mi perfil</a></li>
+        <li><a href="#" (click)="goHome()">Inicio</a></li>
+        <li><a href="#" (click)="newRecipe()">Nueva receta</a></li>
+        <li class="searchbar"><form [formGroup]="searchForm" (keydown.enter)="Search()" (ngSubmit)="Search()">
+            <input type="text" name="search" id="search" formControlName="search" placeholder="Buscar recetas">
+            <button type="submit"><fa-icon [icon]="iconSearch"></fa-icon></button>
+        </form></li>
+        <li *ngIf="!isLoged"><a href="#" (click)="login()">Iniciar Sesión</a></li>
+        <li *ngIf="isLoged"><a href="#" (click)="logout()">Cerrar Sesión</a></li>
+    </ul>
+</nav>

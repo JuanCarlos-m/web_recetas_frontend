@@ -1,0 +1,14 @@
+article{
+    width: 70%;
+    margin: auto;
+}
+
+.searchlist{
+    padding: 0;
+}
+
+@media screen and (max-width: 768px){
+    article{
+        width: 100%;
+    }
+}

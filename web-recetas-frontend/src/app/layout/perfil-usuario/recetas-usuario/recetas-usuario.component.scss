@@ -1,0 +1,20 @@
+@import '~src/styles/variables';
+
+h2{
+    margin-top: 40px;
+}
+
+ul{
+    padding: 0;
+}
+
+.paginationdiv{
+    width: 100%;
+}
+
+@media screen and (max-width:768px){
+    h2{
+        margin-top: 0;
+        font-size: 1.2em;
+    }
+}

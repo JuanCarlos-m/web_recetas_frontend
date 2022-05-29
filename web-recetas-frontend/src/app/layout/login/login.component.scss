@@ -1,0 +1,106 @@
+@import "~src/styles/variables";
+
+
+.maindiv{
+    
+    color: $colortexto;
+    margin: 250px auto;
+    padding-top: 12px;
+    background-color: $colorfondos;
+    width: 33%; 
+    min-height: 356px; 
+    width: 35%;
+    min-width: 400px;  
+}
+
+h1{
+    text-align: center;
+    margin-top: 50px;
+}
+
+form{
+    display: flex;
+    min-height: 120px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.username, .password {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    justify-content: space-between;
+    label{
+        width: 117px / 395px * 100% ;
+        min-width: 117px / 395px * 100% ;
+    }
+    input{
+        width: 268px / 395px * 100%;
+        max-width: 268px / 395px * 100%;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 912px){
+    .maindiv{
+        background-color: white;
+        color: black;
+        margin: 200px auto;
+        min-width: 100%;
+    }
+    .username, .password{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 30px;
+        label{
+            margin: 0;
+        }
+        input{
+            width: 100%;
+            max-width: 100%;
+            height: 2em;
+        }
+    }
+}
+
+label{
+    margin-left: 5%;
+}
+
+input{
+    margin-right: 5%;
+}
+
+button{
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+form .error{
+    background-color: $botonborrar;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-top: 12px;
+    p{
+        margin: 0px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.registro{
+    text-align: center;
+    font-size: 1.2em;
+    a{
+        color: blue;
+        text-decoration: underline;
+    }
+}
+

@@ -1,0 +1,169 @@
+@import '~src/styles/variables';
+@import "~src/styles/mixin";
+
+header, .navheader{
+    margin-left: 0;
+}
+
+header{display: none;}
+
+.btmenu, .btsearch{
+    display: none;
+     fa-icon{
+         font-size: 2em;
+         color: $colortexto;
+     }
+}
+
+.logo{
+    padding: 0;
+    max-height: 50px;
+}
+
+/*.logo{
+    max-height: 80px;
+    margin-top: 5px;
+    margin-left: 10px;
+}*/
+
+.mobilesearchbar{
+    display: none;
+}
+
+.navheader{
+    background-color: $colorfondos;
+    height: 50px;
+}
+.menu{
+    list-style: none;
+    vertical-align: top;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+}
+
+li{
+    padding: 9.5px 0.5%;
+    list-style-type: none;
+    transition-property: background-color;
+    transition-duration: 2s;
+    a{
+        color: $colortexto;
+        font-size: 1.4em;
+        display: block;
+        text-decoration: none;
+    }           
+}
+.searchbar{
+    width: 25%;
+    padding: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    form {
+        display: flex;
+        align-items: center;
+        button{
+            border: none;
+            background: none;
+            color: $colortexto;
+            fa-icon{
+                font-size: 1.5em;
+            }
+        }
+        input{
+            height: 28px;
+            width: 99%;
+            border-radius: 5px;
+            border-style: none;
+        }
+    }
+}
+
+li:hover{
+    background-color: $colorhover; 
+}
+
+@media screen and (max-width: 768px) {
+    header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        display: flex;
+        background-color: $colorfondos;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5px;
+    }
+
+    .logo{
+        max-height: 45px;
+        margin-top: 0px;
+        margin-left: 0px;  
+    }
+    
+    .btmenu, .btsearch{
+        display: block;
+    }
+
+    .btmenu{
+        min-width: 28px;
+        margin-left: 5px;
+    }
+
+    .btsearch{
+        margin-right: 15px;
+        min-width: 32px;
+    }
+
+    .searchbar{
+        display: none;
+    }
+
+    .mobilesearchbar{
+        position: fixed;
+        display: block;
+        top: 45px;
+        width: 100%;
+        background-color: $colorfondos;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        form{
+            display: flex;
+            justify-content: center;
+            input{
+                width: 90%;
+                height: 2em;
+                margin: 5px 0;
+            }
+            button{
+                background: none;
+                color: black;
+                position: absolute;
+                right: 4%;
+                top: 8px;
+            }
+        }
+    }
+    .msearchhidden{
+        top: -100%;
+    }
+
+    .navheader{
+        position: fixed;
+        height: auto;
+        width: 50%;
+        top: 45px;
+    }
+
+    .mobilehidden{
+        left: -100%;
+    }
+
+    .menu{
+        display: block;
+    }
+
+}

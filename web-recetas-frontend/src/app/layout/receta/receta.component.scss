@@ -1,0 +1,73 @@
+@import "~src/styles/mixin";
+@import "~src/styles/variables";
+
+.title{
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+.mainimg{
+    width: 100%;
+}
+
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fecha{
+    text-align: end;
+}
+
+.panel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexpanel{
+    display: flex;
+    width: 12%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button{
+    @include button;
+}
+
+.likebuttons button{
+    background: none;
+}
+
+.unpressed{
+    color: #a8a8a8;
+}
+
+.liked{
+    color: #85E758;
+}
+
+.unliked{
+    color: #F90000;
+}
+
+.userbuttons button{
+    @include botonespanel;
+}
+
+.edit{
+    background-color: #FAA30C;
+}
+
+.delete{
+    background-color: $botonborrar;
+}
+
+@media screen and (max-width: 768px){
+    .userbuttons{
+        width: auto;
+    }
+    
+    .likebuttons{
+        width: 35%;
+    }
+}

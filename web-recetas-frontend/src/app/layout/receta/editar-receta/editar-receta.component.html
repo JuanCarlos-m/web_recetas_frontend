@@ -1,0 +1,46 @@
+<h1>Editar Receta</h1>
+
+<form [formGroup]="recetaForm" (ngSubmit)="onSubmit()">
+    <div class="flex">
+        <fieldset class="formulario">
+            <div class="datos">
+                <div>
+                    <label for="titulo">Titulo de la receta:</label>
+                    <input type="text" name="titulo" id="titulo" formControlName="titulo" formControlName="titulo">
+                </div>
+                <div>
+                    <label for="categoria">Categoria: </label>
+                    <select name="categoria" id="categoria" formControlName="categoria">
+                        <option value="{{categoria}}" *ngFor="let categoria of listaCat">{{categoria | uppercase}}</option>
+                    </select>
+                </div>
+                <div class="imagen">
+                    <label for="imagen" class="labelfile">Subir imagen.
+                        <input type="file" name="imagen" class="file" id="imagen" formControlName="img" (change)="upload($event)">
+                    </label>
+                    <img class="imgmobile" [src]="thumb" alt="Vista Previa">
+                </div>
+            </div>
+        </fieldset>
+        <div class="imgpc">
+            <img [src]="thumb" alt="Vista Previa">
+        </div>
+        </div>
+        <h2>
+        <label for="contenido">Escriba su receta aquí:</label>
+        </h2>
+        
+        <editor formControlName="contenido" apiKey="8m7vlf169o8vd6ffcykgu477vjzplye6t02plfzw2s693tz2" [init]="{ 
+            plugins: 'lists link table help wordcount lists autoresize', 
+            toolbar:'undo redo | styles | bold italic | outdent indent | numlist bullist',
+            menubar:'edit insert table help'
+            }">
+            
+        </editor>
+        <div class="submitbutton">
+            <button type="submit">Enviar</button>
+        </div>
+    
+
+
+</form>

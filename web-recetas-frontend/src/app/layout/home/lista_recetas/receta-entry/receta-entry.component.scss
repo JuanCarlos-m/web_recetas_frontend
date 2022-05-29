@@ -1,0 +1,82 @@
+@import "~src/styles/variables";
+@import "~src/styles/mixin";
+
+li{
+    list-style: none;
+    @include menu;
+    border-radius: 10px;
+    margin: 16px 0;
+    width: 100%;  
+    div{
+        display: flex;
+    }     
+}
+
+.recipe{
+    flex-direction: column;
+    justify-content: space-around;
+    width: 572px / 1088px * 100%;
+}
+
+img{
+    margin: 16px;
+    width: 448px / 1088px * 100%;
+    border-radius: 10px;
+    height: 465.34px / 352px *100%;
+}
+
+.content{
+    margin-top: 0;
+    min-height: 185px / 352px * 100%;
+}
+.flexelements{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+
+.flexelements.mobile, .content.mobile{
+    display: none ;
+}
+
+@media screen and (max-width:1224px) {
+    .recipe{
+        justify-content: start;
+        margin: 16px 0;
+    }
+    
+    .flexelements.title{
+        display: block;
+    }
+    
+    .date{
+        font-size: 0.8em;
+    }
+
+    .content.mobile{
+        display: block;
+        margin-top: 0;
+    }
+
+    .flexelements.mobile{
+        display: flex ;
+        margin: 0px 5px;
+        width: auto;
+    }
+
+    .flexelements.monitor, .content.monitor{
+        display: none ;
+    }
+
+    h2{
+        font-size: 1em;
+        margin: 0;
+    }
+
+    img{
+        width: calc(117px / 360px * 100%);
+    }
+    
+}

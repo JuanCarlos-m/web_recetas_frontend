@@ -1,0 +1,24 @@
+
+<h1>Inicio</h1>
+
+<form [formGroup]="selector">
+    <p>Ver recetas: </p>
+    <div>
+    <div><label for="timeline">Recetas de tus seguidores</label><input type="radio" name="option" id="timeline" value="timeline" formControlName="option"></div>
+    <div><label for="all">Ver todo</label><input type="radio" name="option" id="all" value="all" formControlName="option"></div>
+    </div>
+</form>
+<ul>
+    <li *ngIf="emptylist">
+        <div><p>Aqui se mostrarán tus recetas y las de aquellos a quienes sigas, puedes escribir una nueva receta pulsando en Nueva Receta</p></div>
+    </li>
+    <app-receta-entry *ngFor="let receta of recetaList | paginate:{
+        itemsPerPage: pageSize,
+        currentPage: pageNo,
+        totalItems: totalItems
+    }" [receta]="receta"></app-receta-entry>
+    
+</ul>
+<div class="paginationdiv">
+<pagination-controls class="paginacion" (pageChange)="loadList($event)" previousLabel="" nextLabel="" [autoHide]=true [responsive]=true></pagination-controls>
+</div>

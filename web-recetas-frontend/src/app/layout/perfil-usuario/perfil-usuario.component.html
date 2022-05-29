@@ -1,0 +1,17 @@
+<article>
+<section class="userdata">
+    <h1>{{user.username}}</h1>
+    <p>{{user.name}} {{user.lastname}}</p>
+    <p>{{user.fechanac | age}} años</p>
+    <p>Se unio el {{user.createdAt | date}}</p>
+    <br>
+    <p>{{noFollowers}} Seguidores</p>
+    <div>
+        <button class="button follow" (click)="Follow()" *ngIf="!sameUser && !isFollowed">Seguir</button>
+        <button class="button unfollow" (click)="Unfollow()" *ngIf="!sameUser && isFollowed">Dejar de seguir</button>
+    </div>
+</section>
+<section class="recipelist">
+    <app-recetas-usuario [username]="user.username"></app-recetas-usuario>
+</section>
+</article>

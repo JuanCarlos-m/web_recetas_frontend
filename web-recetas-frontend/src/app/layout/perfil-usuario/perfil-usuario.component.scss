@@ -1,0 +1,45 @@
+@import '~src/styles/variables';
+@import "~src/styles/mixin";
+
+article{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+
+h1{
+    font-size: 1.8em;
+}
+
+.userdata{
+    position: sticky;
+    top: 166px;
+}
+
+.recipelist{
+    width: 70%;
+}
+
+.button{
+    padding: 5px 0;
+    width: 135px;
+}
+
+.button.unfollow{
+    background-color: $botonborrar;
+}
+
+@media screen and (max-width:768px){
+    article{
+        display: block;
+    }
+    .userdata{
+        position: static;
+        top: 0;
+    }
+    .recipelist{
+        width: 100%;
+    }
+}

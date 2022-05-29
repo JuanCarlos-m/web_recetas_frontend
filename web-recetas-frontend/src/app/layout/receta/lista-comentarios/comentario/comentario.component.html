@@ -1,0 +1,12 @@
+<section>
+    <div class="headcomentario">
+        <h3>{{comentario.autor.username}}</h3>
+        <p>{{comentario.createdAt | date}}</p>
+    </div>
+    <p>{{comentario.texto}}</p>
+    <div class="divboton">
+        <button (click)="borrarComentario()" *ngIf="userIsAuthor"><fa-icon [icon]="faicon"></fa-icon></button>
+    </div>
+</section>
+
+<hr>
