@@ -4,12 +4,13 @@
     <img [src]="img" [alt]="receta.titulo" *ngIf="img!==undefined">
     <img src="assets/placeholder.jpg" [alt]="receta.titulo" *ngIf="img===undefined">
     <div class="recipe">
-        <div class="flexelements">
+        <div class="flexelements title">
             <h2 class="title" (click)="goDetail(receta.id)">{{receta.titulo}}</h2>
             <p class="date">{{receta.createdAt | date}}</p>
         </div>
-        <p class="content" [innerHTML]="receta.contenido | noimg | shortened" (click)="goDetail(receta.id)"></p>
-        <div class="flexelements">
+        <p class="content monitor" [innerHTML]="receta.contenido | noformat | shortened:200" (click)="goDetail(receta.id)"></p>
+        <p class="content mobile" [innerHTML]="receta.contenido | noformat | shortened:100" (click)="goDetail(receta.id)"></p>
+        <div class="flexelements monitor">
             <p class="author">Escrita por: <a href="#" (click)="seeUser(receta.user.username)"> {{receta.user.username}}</a></p>
             <p class="likes">{{likes}} <fa-icon class="heart" [icon]="faicon"></fa-icon></p>
         </div>

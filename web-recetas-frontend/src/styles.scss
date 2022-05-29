@@ -12,16 +12,34 @@ body{
 main{
     margin: 0 $margenpc;
 }
+
+@media screen and(max-width: 912px){
+    main{
+        margin: 0 5px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        margin-top: 60px;
+    }
+}
+
 h1, h2{
     font-family: Helvetica, 'Roboto', sans-serif;
 }
 
-.paginacion .ngx-pagination .current{
-    background: $colorfondos;
-}
-
 .paginacion .ngx-pagination{
     font-size: 1.2em;
+    .current, .pagination-previous, .pagination-next{
+        background: $colorfondos;
+        a{ 
+            color: white; 
+        }
+    }
+    .disabled{
+        display: none;
+    }
 }
 
 .heart{
@@ -35,4 +53,14 @@ h1, h2{
 
 button{
     @include button;
+    transition-property: background-color;
+    transition-duration: 2s;
+}
+
+button:hover{
+    background-color: #0F4C7A;
+}
+
+*{
+    box-sizing: border-box;
 }

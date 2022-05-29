@@ -5,7 +5,7 @@ import { SharedService } from '../../core/services/shared/shared.service';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RecetasService } from '../../core/services/recetas/recetas.service';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +18,12 @@ export class HeaderComponent implements OnInit {
   subscription:Subscription;
   searchForm:FormGroup;
 
-  faicon=faMagnifyingGlass;
+  iconSearch=faMagnifyingGlass;
+  iconSearchTab=faMagnifyingGlass;
+  iconMenu=faBars;
+
+  hidden:boolean=true;
+  searchHidden:boolean=true;
 
   constructor(private router:Router, private recetaService:RecetasService, private authservice:AuthService, private ss:SharedService, private formBuilder:FormBuilder) { }
 
@@ -30,9 +35,34 @@ export class HeaderComponent implements OnInit {
     this.searchForm=this.formBuilder.group({"search":["", Validators.required]});
   }
 
+  openMenu(){
+    event.preventDefault();
+    if(this.hidden===true){
+      this.hidden=false;
+      this.iconMenu=faXmark;
+      if (this.searchHidden===false) this.openSearchBar();
+    }else{
+      this.hidden=true;
+      this.iconMenu=faBars;
+    }
+    
+  }
+
+  openSearchBar(){
+    event.preventDefault();
+    if(this.searchHidden===true){
+      this.searchHidden=false;
+      this.iconSearchTab=faXmark;
+      if (this.hidden===false) this.openMenu();
+    }else{
+      this.searchHidden=true;
+      this.iconSearchTab=faMagnifyingGlass;
+    }    
+  }
 
   goUser(){
     event.preventDefault();
+    if (this.hidden===false) this.openMenu();
     if(this.isLoged){
       this.router.navigate(["/user/"+this.authservice.userValue.username]);
     }
@@ -42,17 +72,20 @@ export class HeaderComponent implements OnInit {
 
   goHome(){
     event.preventDefault();
+    if (this.hidden===false) this.openMenu();
     this.router.navigate(["/home"]);
   }
 
   newRecipe(){
     event.preventDefault();
+    if (this.hidden===false) this.openMenu();
     if(this.isLoged)this.router.navigate(['/new_recipe']);
     else this.login();
   }
 
   login(){
     event.preventDefault();
+    if (this.hidden===false) this.openMenu();
     this.router.navigate(['/login']);
   }
 
@@ -60,12 +93,15 @@ export class HeaderComponent implements OnInit {
     event.preventDefault();
     this.authservice.logout();
     this.isLoged=false;
+    if (this.hidden===false) this.openMenu();
     this.router.navigate(['/login']);
   }
 
   Search(){
     if(this.searchForm.valid) this.router.navigate(['/search', this.searchForm.value.search]);
     
+    if(this.searchHidden===false) this.openSearchBar();
+
     else return;
   }
 }

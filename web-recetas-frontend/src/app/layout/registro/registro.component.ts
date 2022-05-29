@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/core/entities/user';
 import { AuthService } from '../../core/services/auth/auth.service';
-import { Subscription } from 'rxjs';
-import { HeaderComponent } from '../header/header.component';
 import { SharedService } from '../../core/services/shared/shared.service';
 import { UserService } from '../../core/services/user/user.service';
 

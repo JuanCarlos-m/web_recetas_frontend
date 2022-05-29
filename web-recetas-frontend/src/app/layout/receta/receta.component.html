@@ -17,7 +17,7 @@
             <p>{{likes}} <fa-icon class="heart" [icon]="hearticon"></fa-icon> </p>
         </div>
         <div class="userbuttons flexpanel">
-            <button (click)="goEdit()" *ngIf="userIsAuthor"><fa-icon [icon]="editicon"></fa-icon></button>
+            <button class="edit" (click)="goEdit()" *ngIf="userIsAuthor"><fa-icon [icon]="editicon"></fa-icon></button>
             <button class="delete" (click)="Borrar()" *ngIf="userIsAuthor"><fa-icon [icon]="deleteicon"></fa-icon></button>
         </div>
     </section>

@@ -1,12 +1,11 @@
 @import '~src/styles/variables';
-@import "~src/styles/mixin";
 
 form{
-    width: 45%;
+    width: 50%;
+    margin: auto;
 }
 
 fieldset{
-    //width: 30%;
     border-style: none;
 }
 
@@ -31,11 +30,30 @@ form fieldset div{
 
 .flexdiv{
     display: flex;
-    //width: 30%;
     justify-content: flex-end;
     button{
         padding: 5px 8px;
         font-weight: bold;
         font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 502px){
+    form fieldset div{
+        display: block;
+        input{
+            width: 100%;
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    form{
+        width: 100%;
+    }
+
+    .flexdiv{
+        justify-content: center;
     }
 }

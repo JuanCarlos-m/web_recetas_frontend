@@ -1,5 +1,4 @@
 @import '~src/styles/variables';
-//@import "~src/styles/mixin";
 
 h2{
     margin-top: 40px;
@@ -11,4 +10,11 @@ ul{
 
 .paginationdiv{
     width: 100%;
+}
+
+@media screen and (max-width:768px){
+    h2{
+        margin-top: 0;
+        font-size: 1.2em;
+    }
 }

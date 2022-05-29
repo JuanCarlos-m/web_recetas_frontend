@@ -33,7 +33,6 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
         this.userService.checkFollow(this.username).subscribe((response)=>{
-          //No se puede hacer un isfollowed=response, ya que los observables no pueden devolver booleanos aparentemente (if(response) si funciona), pero y lo que molaria.
           if (response) this.isFollowed=true;
           else this.isFollowed=false;
         })

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Receta } from '../../entities/receta';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
@@ -16,7 +16,6 @@ export class RecetasService {
   constructor(private readonly http:HttpClient, private readonly authservice:AuthService, private router:Router) { }
 
   public recetaList:Receta[]=[];
-  //public receta:Receta;
   
   returnAllRecetas(pageNo:number): Observable<PagedResponse>{
     const url=environment.api_url+"recetas";

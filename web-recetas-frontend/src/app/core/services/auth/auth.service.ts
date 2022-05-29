@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Auth } from '../../entities/auth';
 import { User } from '../../entities/user';
-import { BehaviorSubject, map, Observable, of, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../../../layout/login/login.component';
+import { SharedService } from '../shared/shared.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class AuthService {
   private userSubject:BehaviorSubject<User>;
   public user:Observable<User>
 
-  constructor(private readonly http:HttpClient, private router: Router) { 
+  constructor(private readonly http:HttpClient, private router: Router, private ss:SharedService) { 
     this.userSubject=new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem('currentUser'))
     );
@@ -44,6 +43,8 @@ export class AuthService {
         };
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.generateUser()
+        this.ss.setloged();
+        this.router.navigate(['/home']);
         return user
       },(error)=>{}
     )

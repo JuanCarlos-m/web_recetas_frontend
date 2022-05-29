@@ -14,33 +14,39 @@ input[type="file"]{
 .imagen{
     align-items: center;
     img{
+        display: none;
         width: calc(145.5 / 671.5 * 100%);
     }
 }
 
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
 .formulario{
-    width: calc(672px / 1920px * 100%);
+    width: 60%;
     border-style: none;
 }
+
+.imgpc img{
+    height: 180px;
+}
+
 
 .datos{
     div{
         margin: 10px 0;
         display: flex;
         justify-content: space-between;
-        
+        align-items: center;
     }
 }
 
-input{
-    height: 1.5em;
-    width: 48.218%;
-}
-
-select{
+select, input{
     height: 2em;
     width: 50%;
 }
+
 
 .submitbutton{
     display: flex;
@@ -52,3 +58,34 @@ select{
         font-weight: bold;
     }
 }
+
+@media screen and (max-width: 502px){
+    .datos {
+        div{
+            display: block;
+        }
+    }
+
+    select, input{
+        width: 100%;
+    }
+
+    .datos .imagen{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .formulario{
+        width: inherit;
+    }
+    
+    .imgpc{
+        display: none;
+    }
+
+    .imagen img{
+        display: block;
+    }
+}
+

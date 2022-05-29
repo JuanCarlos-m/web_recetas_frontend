@@ -16,14 +16,12 @@ import { NuevocomentarioComponent } from './layout/receta/lista-comentarios/nuev
 import { PerfilUsuarioComponent } from './layout/perfil-usuario/perfil-usuario.component';
 import { RecetasUsuarioComponent } from './layout/perfil-usuario/recetas-usuario/recetas-usuario.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
 import { EditarRecetaComponent } from './layout/receta/editar-receta/editar-receta.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchComponent } from './layout/search/search.component';
 import { RecetaEntryComponent } from './layout/home/lista_recetas/receta-entry/receta-entry.component';
 import { RegistroComponent } from './layout/registro/registro.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
-import { NoimgPipe } from './core/pipes/noimg/noimg.pipe';
 import { ShortenedPipe } from './core/pipes/shortened/shortened.pipe';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DatePipe } from './core/pipes/date/date.pipe';
@@ -46,12 +44,10 @@ import { NoformatPipe } from './core/pipes/noformat/noformat.pipe';
     PerfilUsuarioComponent,
     RecetasUsuarioComponent,
     HeaderComponent,
-    FooterComponent,
     EditarRecetaComponent,
     SearchComponent,
     RecetaEntryComponent,
     RegistroComponent,
-    NoimgPipe,
     ShortenedPipe,
     DatePipe,
     UppercasePipe,

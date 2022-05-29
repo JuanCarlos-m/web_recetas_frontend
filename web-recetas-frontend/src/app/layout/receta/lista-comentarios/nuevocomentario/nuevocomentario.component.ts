@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Receta } from '../../../../core/entities/receta';
 import { Comentario } from '../../../../core/entities/comentario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ComentarioService } from '../../../../core/services/comentario/comentario.service';

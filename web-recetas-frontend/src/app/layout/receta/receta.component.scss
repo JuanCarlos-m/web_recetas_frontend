@@ -54,6 +54,20 @@ button{
     @include botonespanel;
 }
 
+.edit{
+    background-color: #FAA30C;
+}
+
 .delete{
     background-color: $botonborrar;
+}
+
+@media screen and (max-width: 768px){
+    .userbuttons{
+        width: auto;
+    }
+    
+    .likebuttons{
+        width: 35%;
+    }
 }

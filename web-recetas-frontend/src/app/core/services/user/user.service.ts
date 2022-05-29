@@ -3,7 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../../entities/user';
 import { environment } from 'src/environments/environment';
-import { Receta } from '../../entities/receta';
 import { AuthService } from '../auth/auth.service';
 
 @Injectable({

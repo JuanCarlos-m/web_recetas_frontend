@@ -5,8 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NoformatPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string): string {
+    let texto=value.replace(/<\/?[^>]+(>|$)/g, "")
+    return texto;
   }
 
 }

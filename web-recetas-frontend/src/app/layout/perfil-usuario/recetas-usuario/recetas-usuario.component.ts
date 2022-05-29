@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Receta } from '../../../core/entities/receta';
-import { UserService } from '../../../core/services/user/user.service';
 import { Router } from '@angular/router';
 import { RecetasService } from '../../../core/services/recetas/recetas.service';
 import { PagedResponse } from '../../../core/entities/pagedResponse';

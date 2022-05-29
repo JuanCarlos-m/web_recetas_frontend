@@ -37,13 +37,46 @@ img{
     width: 100%;
 }
 
-.mobile{
-    display: none !important;
+.flexelements.mobile, .content.mobile{
+    display: none ;
 }
 
-@media screen and (max-width: 1416px) {
-    li div .content{
-        margin-top: -5%;
+@media screen and (max-width:1224px) {
+    .recipe{
+        justify-content: start;
+        margin: 16px 0;
+    }
+    
+    .flexelements.title{
+        display: block;
+    }
+    
+    .date{
+        font-size: 0.8em;
+    }
+
+    .content.mobile{
+        display: block;
+        margin-top: 0;
+    }
+
+    .flexelements.mobile{
+        display: flex ;
+        margin: 0px 5px;
+        width: auto;
+    }
+
+    .flexelements.monitor, .content.monitor{
+        display: none ;
+    }
+
+    h2{
+        font-size: 1em;
+        margin: 0;
+    }
+
+    img{
+        width: calc(117px / 360px * 100%);
     }
     
 }

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/core/entities/user';
 import { AuthService } from '../../core/services/auth/auth.service';
-import { Subscription } from 'rxjs';
-import { HeaderComponent } from '../header/header.component';
 import { SharedService } from '../../core/services/shared/shared.service';
 
 @Component({
@@ -34,8 +31,7 @@ export class LoginComponent implements OnInit {
       return;
     }else{
       this.authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe((response) => {
-        this.ss.setloged();
-        this.router.navigate(['/home']);
+        
       },
       (error)=>{
         this.loginerror=true;

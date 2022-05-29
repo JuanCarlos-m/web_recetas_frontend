@@ -1,7 +1,8 @@
-<h1>Nuevo Usuario</h1>
+
 
 <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
     <fieldset>
+        <legend><h1>Nuevo Usuario</h1></legend>
     <div class="username">
         <label for="username">Usuario: </label>
         <input type="text" name="username" id="username" formControlName="username">
