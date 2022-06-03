@@ -50,10 +50,11 @@ select, input{
 
 .submitbutton{
     display: flex;
-    margin: 20px 10%;
     justify-content: flex-end;
     button{
         @include button;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
         padding: 8px 15px;
         font-weight: bold;
     }
