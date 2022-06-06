@@ -27,8 +27,12 @@ img{
 
 .content{
     margin-top: 0;
-    min-height: 185px / 352px * 100%;
 }
+
+.date{
+    white-space: nowrap;
+}
+
 .flexelements{
     display: flex;
     flex-direction: row;
